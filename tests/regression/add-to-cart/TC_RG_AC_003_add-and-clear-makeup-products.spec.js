@@ -21,7 +21,7 @@ for (let index in rows) {
     const productType = rows[index].productType;
     const productNames = rows[index].productNames;
         
-    test.only(`Add Multiple Makeup Products ${Number(index) + 1} @regression @ddt`, async ({ page }) => {
+    test(`Add Multiple Makeup Products ${Number(index) + 1} @regression @ddt`, async ({ page }) => {
         const homePage = new HomePage(page);
         const loginPage = new LoginPage(page);
         const dashboardPage = new DashboardPage(page);

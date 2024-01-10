@@ -23,7 +23,12 @@
 
 
 
-# 04. Generating Allure Report
+# 04. Opening Playwright Report
+
+    npx playwright show-report
+
+
+# 05. Opening Allure Report
 
 ## Run the Playwright tests and the Allure reports are generated under 'allure-results' default
 

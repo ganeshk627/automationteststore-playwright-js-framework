@@ -30,15 +30,6 @@
 
 # 05. Opening Allure Report
 
-## Run the Playwright tests and the Allure reports are generated under 'allure-results' default
-
-## To Install Allure, use below command (Only Once)
-
-    npm install -g allure-commandline --save-dev
-
-
-#### Note:- specify -g to install globally
-
 ## To Open Allure report, use below command (Java should be installed)
 
     allure serve

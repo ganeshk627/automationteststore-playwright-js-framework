@@ -36,10 +36,6 @@
 
 ## To Generate and view HTML Allure report, use below command
 
-    allure generate
-
-or
-
     allure generate --clean --single-file
 
 #### Outcome:- HTML report is generated under 'allure-report'

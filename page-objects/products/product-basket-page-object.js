@@ -50,7 +50,7 @@ export class ProductBasketPage {
     }
 
     async removeFirstItemFromCart(id) {
-        await this.page.locator(removeItem.first()).click()
+        await this.page.locator(removeItem).first().click()
     }
 
 

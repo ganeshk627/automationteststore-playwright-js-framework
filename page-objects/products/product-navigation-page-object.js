@@ -1,26 +1,27 @@
 import { expect } from "@playwright/test";
 import { ProductViewPage } from "./product-view-page-object";
 import { ProductBasketPage } from "./product-basket-page-object";
+import {
+    sort,
+    listViewButton,
+    gridViewButton,
+    addToCartButton,
 
+} from '../../pages/products/product-navigation-page';
+import {
+    productnavigationConfig
+} from '../../page-config/page-config';
 
 export class ProductNavigationPage {
 
-    // sort,
-    // listViewButton,
-    // gridViewButton,
-    // addToCartButton,
-    // couponTextBox,
-    // applyCouponButton,
-
-
     constructor(page) {
         this.page = page;
-        this.sort = page.locator('#sort');
-        this.listViewButton = page.locator('#list');
-        this.gridViewButton = page.locator('#grid');
-        this.addToCartButton = page.getByRole('link', { name: 'Add to Cart' });
-        this.couponTextBox = page.locator('#coupon_coupon');
-        this.applyCouponButton = page.getByRole('button', { name: 'Apply Coupon' });
+        // this.sort = page.locator('#sort');
+        // this.listViewButton = page.locator('#list');
+        // this.gridViewButton = page.locator('#grid');
+        // this.addToCartButton = page.getByRole('link', { name: 'Add to Cart' });
+        // this.couponTextBox = page.locator('#coupon_coupon');
+        // this.applyCouponButton = page.getByRole('button', { name: 'Apply Coupon' });
     };
 
     async switchToProduct(productCategory, productType) {
@@ -35,12 +36,13 @@ export class ProductNavigationPage {
          Need to do conditions for 'Apparel & accessories', 'Skincare', 'Fragrance', 'Men', 'Hair Care', 'Books'
          */
 
-        await expect(this.page).toHaveURL(/product\/category/);
+        await expect(this.page).toHaveURL(productnavigationConfig.URL);
     };
 
     async addProductToCart(productName) {
         await this.page.getByRole('link', { name: productName }).click();
-        const productBasketPage = await new ProductViewPage(this.page).addProductToCart(productName);
+        const productViewPage = new ProductViewPage(this.page);
+        const productBasketPage = productViewPage.addProductToCart(productName);
         return productBasketPage;
     };
 
@@ -53,13 +55,8 @@ export class ProductNavigationPage {
 
     }
 
-    async applyCouponCode(couponCode) {
-        await this.couponTextBox.pressSequentially(couponCode);
-        await this.applyCouponButton.click();
-    };
-
     async toggleProductView(view) {
-        view === 'list' ? await this.listViewButton.click() : await this.gridViewButton.click();
+        view === 'list' ? await this.page.locator(listViewButton).click() : await this.page.locator(gridViewButton).click();
     };
 
 

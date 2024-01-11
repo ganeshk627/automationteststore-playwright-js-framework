@@ -1,34 +1,43 @@
 import { expect } from "@playwright/test";
 import logger from "../../utils/winston-logger/logger-util";
-
+import {
+    loginName,
+    forgotEmail,
+    backBtn,
+    continueBtn,
+    resetSuccessMessage,
+    closeResetSuccessMessageButton,
+} from '../../pages/forgot-password/forgot-password-page';
+import { forgotpasswordConfig, loginConfig } from "../../page-config/page-config";
 
 export class ForgotPasswordPage {
 
-    // loginName,
-    // forgotEmail,
-    // backBtn,
-    // continueBtn,
-
     constructor(page) {
         this.page = page;
-        this.loginName = page.locator('#forgottenFrm_loginname');
-        this.forgotEmail = page.locator('#forgottenFrm_email');
-        this.backBtn = page.getByRole('link', { name: ' Back' });
-        this.continueBtn = page.getByRole('button', { name: ' Continue' });
+        // this.loginName = page.locator('#forgottenFrm_loginname');
+        // this.forgotEmail = page.locator('#forgottenFrm_email');
+        // this.backBtn = page.getByRole('link', { name: ' Back' });
+        // this.continueBtn = page.getByRole('button', { name: ' Continue' });
 
     };
 
     async resetPassword(username, email) {
-        await this.loginName.fill(username);
-        await expect(this.loginName).toHaveValue(username);
-        await this.forgotEmail.fill(email);
-        await expect(this.forgotEmail).toHaveValue(email);
-        await this.continueBtn.click();
-        await expect(this.page.locator('#maincontainer')).toContainText('Success: Password reset link has been sent to your e-mail address.');
-        await expect(this.page).toHaveURL(/.*account\/login/);
+        await expect(this.page).toHaveURL(forgotpasswordConfig.URL);
+        await this.page.locator(loginName).fill(username);
+        await expect(this.page.locator(loginName)).toHaveValue(username);
+        await this.page.locator(forgotEmail).fill(email);
+        await expect(this.page.locator(forgotEmail)).toHaveValue(email);
+        await this.page.locator(continueBtn).click();
+        await expect(this.page.locator(resetSuccessMessage)).toContainText(forgotpasswordConfig.RESET_PASSWORD_MESSAGE);
+        await expect(this.page.locator(closeResetSuccessMessageButton)).click();
+        await expect(this.page).toHaveURL(loginConfig.URL);
         logger.info('Reset Password link sent successfully');
     }
 
+    async goBackToLoginPage() {
+        await this.page.locator(backBtn).click();
+        await expect(this.page).toHaveURL(loginConfig.URL);
+    }
 
 
 };

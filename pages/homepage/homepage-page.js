@@ -1,3 +1,3 @@
-// export const login_register_link = page.getByRole('link', { name: 'Login or register' });
+export const loginOrRegisterLink = '//a[contains(text(),"Login or register")]';
         
   

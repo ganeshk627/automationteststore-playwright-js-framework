@@ -1,3 +1,3 @@
-// confirmOrderButton = page.getByRole('button', { name: 'Confirm Order' });
-// backButton = page.locator('#payment').getByRole('link', { name: 'Back' });
+export const confirmOrderButton = '//button[@title="Confirm Order"]'
+export const backButton = '#back'
   

@@ -1,29 +1,30 @@
 import { expect } from "@playwright/test";
 import { DashboardPage } from "../../dashboard/dashboard-page-object";
+import {
+    continueButton,
+    successHeading,
+} from '../../../pages/products/checkout/checkout-success-page';
+import {
+    checkoutsuccessConfig,
+} from '../../../page-config/page-config';
 
 
 export class CheckoutSuccessPage {
 
-    // continueButton,
-    // successHeading,
-    SUCCESS_HEADING_MESSAGE = "Your Order Has Been Processed!" 
-
-
-
     constructor(page) {
         this.page = page;
-        this.continueButton = page.getByRole('link', { name: 'Continue' });
-        this.successHeading = page.locator('h1.heading1');
+        // this.continueButton = page.getByRole('link', { name: 'Continue' });
+        // this.successHeading = page.locator('h1.heading1');
     };
 
     async clickContinueButton() {
-        await expect(this.page).toHaveURL(/checkout\/success/);
-        await this.continueButton.click();
+        await expect(this.page).toHaveURL(checkoutsuccessConfig.URL);
+        await this.page.locator(continueButton).click();
         return new DashboardPage(this.page);
     };
 
     async validateOrderSuccessMessage() {
-        await expect(this.successHeading).toContainText(this.SUCCESS_HEADING_MESSAGE);
+        await expect(this.page.locator(successHeading) ).toContainText(checkoutsuccessConfig.ORDER_SUCCESS_MESSAGE);
     }
 
 };

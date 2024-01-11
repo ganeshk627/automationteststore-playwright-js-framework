@@ -7,8 +7,9 @@ import {
     checkoutButton2,
     continueShoppingButton,
     removeItem,
+    couponTextBox,
+    applyCouponButton,
 } from '../../pages/products/product-basket-page';
-
 import {
     productbasketConfig,
     checkoutconfirmationConfig,
@@ -52,14 +53,5 @@ export class ProductBasketPage {
     async removeFirstItemFromCart(id) {
         await this.page.locator(removeItem).first().click()
     }
-
-
-
-
-
-
-
-
-
 
 };

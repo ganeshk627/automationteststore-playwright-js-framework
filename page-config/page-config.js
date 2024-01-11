@@ -31,11 +31,24 @@ export const productnavigationConfig = {
 }
 
 export const productbasketConfig = {
+    TITLE: 'Shopping Cart',
     URL: /checkout\/cart/,
 }
  
 export const checkoutconfirmationConfig = {
+    TITLE: 'Checkout Confirmation',
     URL: /checkout\/confirm/,
+}
+
+export const checkoutpaymentConfig = {
+    TITLE: 'Payment Information',
+    URL: /checkout\/payment/,
+}
+
+export const checkoutsuccessConfig = {
+    TITLE: 'Your Order Has Been Processed!',
+    URL: /checkout\/success/,
+    ORDER_SUCCESS_MESSAGE: "Your Order Has Been Processed!",
 }
 
 

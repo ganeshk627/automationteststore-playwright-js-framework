@@ -1,15 +1,12 @@
 import { test} from '@playwright/test';
-import { HomePage } from "../../../page-objects/homepage/homepage-page-object";
-import { LoginPage } from "../../../page-objects/login/login-page-object";
-import logger from '../../../utils/winston-logger/logger-util';
-import { DashboardPage } from '../../../page-objects/dashboard/dashboard-page-object';
-import { ProductNavigationPage } from '../../../page-objects/products/product-navigation-page-object';
-import { readJsonData } from '../../../utils/json-util/json-util'
-import { ProductBasketPage } from '../../../page-objects/products/product-basket-page-object';
+import { HomePage } from "../../../../page-objects/homepage/homepage-page-object";
+import { LoginPage } from "../../../../page-objects/login/login-page-object";
+import logger from '../../../../utils/winston-logger/logger-util';
+import { DashboardPage } from '../../../../page-objects/dashboard/dashboard-page-object';
+import { ProductNavigationPage } from '../../../../page-objects/products/product-navigation-page-object';
+import { readJsonData } from '../../../../utils/json-util/json-util'
+import { ProductBasketPage } from '../../../../page-objects/products/product-basket-page-object';
 
-// const productCategory = 'Makeup';
-// const productType = 'Face';
-// const productName = 'Delicate Oil-Free Powder Blush';
 
 const TEST_DATA = 'test-data/json/products/makeup-products.json';
 const rows = readJsonData(TEST_DATA)

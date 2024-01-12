@@ -1,3 +1,2 @@
-continueButton = page.getByRole('button', { name: 'Continue' });
-backButton = page.locator('#payment').getByRole('link', { name: 'Back' });
-   
+continueButton = '//button[@title="Continue"]'
+backButton = '//a[@title="Back"]'

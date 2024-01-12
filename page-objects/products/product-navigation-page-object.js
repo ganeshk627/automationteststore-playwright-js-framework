@@ -30,6 +30,9 @@ export class ProductNavigationPage {
         if (productType && productCategory === 'Makeup' && ['Cheeks', 'Eyes', 'Face', 'Lips', 'Nails', 'Value Sets'].includes(productType)) {
             await this.page.locator('#maincontainer li').getByRole('link', { name: productType }).click();
             await expect(this.page).toHaveTitle(productType);
+        } else {
+            await this.page.locator('#maincontainer li').getByRole('link', { name: productType }).click();
+            await expect(this.page).toHaveTitle(productType);
         }
 
         /*        

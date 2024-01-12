@@ -59,7 +59,8 @@ export default defineConfig({
     video: 'off',
     launchOptions: {
       args: ["--start-maximized"],
-    }
+      slowMo: 1000,
+    },
   },
 
   timeout: 60000,
@@ -72,7 +73,7 @@ export default defineConfig({
       use: {
         // ...devices['Desktop Chrome'],
         channel: 'chrome',
-        viewport: null
+        viewport: null,
       },
     },
 

@@ -3,7 +3,6 @@ export const homepageConfig = {
     TITLE: 'A place to practice your automation skills!',
 };
 
-
 export const forgotpasswordConfig = {
     TITLE: 'Forgot Your Password?',
     URL: /.*account\/forgotten\/password/,
@@ -67,6 +66,17 @@ export const linkedinConfig = {
     URL: 'https://uk.linkedin.com/',
 }
 
+export const currencyConfig = {
+    // TITLE: 'A place to practice your automation skills!',
+    URL_EUR: /\.*currency=EUR/,
+    URL_GBP: /\.*currency=GBP/,
+    URL_USD: /\.*currency=USD/,
+
+    CURRENCY_SYMBOL_EUR: '€',
+    CURRENCY_SYMBOL_GBP: '£',
+    CURRENCY_SYMBOL_USD: '$',
+
+};
 
 
 

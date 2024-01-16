@@ -20,10 +20,12 @@ import {
 
 import { FacebookPage } from "./social-links/facebook-page-object";
 import { TwitterPage } from "./social-links/twitter-page-object";
+import { BasePage } from "page-objects/base/base-page-object";
 
-export class HomePage {
+export class HomePage extends BasePage {
 
     constructor(page) {
+        super(page);
         this.page = page;
     };
 

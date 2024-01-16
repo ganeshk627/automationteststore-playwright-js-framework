@@ -34,7 +34,11 @@ export class HomePage {
     }
 
     async openFacebookSocialLink(header = true) {
-        const facebookLinkPromise = this.page.context().waitForEvent('page');
+        const facebookLinkPromise = this.page.context().waitForEvent('page').catch((error)=> {
+            logger.error('facebook page not opened!');
+            logger.error(error);
+            throw error}
+            );
         await this.page.locator(header ? headerSocialLinks : footerSocialLinks).locator(facebookLink).click();
         logger.info('facebook link clicked');
         const facebookPage = await facebookLinkPromise;
@@ -44,20 +48,31 @@ export class HomePage {
     }
 
     async openTwitterSocialLink(header = true) {
-        const twitterLinkPromise = this.page.context().waitForEvent('page');
+        const twitterLinkPromise = this.page.context().waitForEvent('page').catch((error)=> {
+            logger.error('twitter page not opened!');
+            logger.error(error);
+            throw error}
+            );
         await this.page.locator(header ? headerSocialLinks : footerSocialLinks).locator(twitterLink).click();
         logger.info('twitter link clicked');
         const twitterPage = await twitterLinkPromise;
         await twitterPage.waitForLoadState();
-        logger.info('facebook link opened');
+        logger.info('twitter link opened');
         return new TwitterPage(twitterPage);
     }
 
     async openLinkedinSocialLink(header = true) {
+        const linkedinPromise = this.page.context().waitForEvent('page').catch((error)=> {
+            logger.error('linkedin page not opened!');
+            logger.error(error);
+            throw error}
+            );
         await this.page.locator(header ? headerSocialLinks : footerSocialLinks).locator(linkedInLink).click();
         logger.info('linkedin link clicked');
-        await this.page.waitForLoadState();
-        logger.info('linked link opened');   
+        const linkedinPage = await linkedinPromise;
+        await linkedinPage.waitForLoadState();
+        // await this.page.waitForLoadState();
+        logger.info('linkedin link opened');
         return this;
     }
 

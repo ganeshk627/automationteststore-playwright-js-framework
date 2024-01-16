@@ -78,6 +78,11 @@ export const currencyConfig = {
 
 };
 
+export const specialofferConfig = {
+    TITLE: 'Special Offers',
+    URL: /product\/special/,
+}
+
 
 
 

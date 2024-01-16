@@ -5,19 +5,22 @@ import {
     currencyEuro,
     currencyPoundSterling,
     currencyUSDollar,
-} from '../../pages/base/base-page';
+    specialOfferLink,
+} from '../../pages/header-footer/header-footer-page';
 
-import { currencyConfig } from "../../page-config/page-config";
+import { currencyConfig, specialofferConfig } from "../../page-config/page-config";
 
 
-export class BasePage {
+export class HeaderFooterPage {
 
     constructor(page) {
         this.page = page;
     };
 
     async navigateSpecialOffersPage() {
-
+        await this.page.locator(specialOfferLink).click();
+        await expect(this.page).toHaveTitle(specialofferConfig.TITLE);
+        await expect(this.page).toHaveURL(specialofferConfig.URL);
     }
 
     async switchCurrencyEuro() {

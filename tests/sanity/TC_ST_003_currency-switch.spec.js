@@ -3,11 +3,12 @@ import { HomePage } from '../../page-objects/homepage/homepage-page-object';
 import { currencyConfig } from '../../page-config/page-config';
 
 
-test('Social Links in Home Page Test @sanity @social-links', async ({ page }) => {
+test('Currency Changing Test @sanity @social-links', async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await test.step('Opening Home Page', async () => {
+    await test.step('Opening Special Offers Page', async () => {
         await page.goto('/');
+        await homePage.navigateSpecialOffersPage();
     });
 
     await test.step('Verifying Euro Switch', async () => {

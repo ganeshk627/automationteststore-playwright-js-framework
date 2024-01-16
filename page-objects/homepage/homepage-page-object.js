@@ -20,9 +20,9 @@ import {
 
 import { FacebookPage } from "./social-links/facebook-page-object";
 import { TwitterPage } from "./social-links/twitter-page-object";
-import { BasePage } from "../../page-objects/base/base-page-object";
+import { HeaderFooterPage } from "../header-footer/header-footer-page-object";
 
-export class HomePage extends BasePage {
+export class HomePage extends HeaderFooterPage {
 
     constructor(page) {
         super(page);

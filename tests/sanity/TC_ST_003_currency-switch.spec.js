@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../../page-objects/homepage/homepage-page-object';
-import { currencyConfig } from 'page-config/page-config';
+import { currencyConfig } from '../../page-config/page-config';
 
 
 test('Social Links in Home Page Test @sanity @social-links', async ({ page }) => {

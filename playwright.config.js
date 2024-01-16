@@ -10,7 +10,8 @@ import { defineConfig, devices } from '@playwright/test';
 if (!process.env.ENV) {
   require("dotenv").config({
     override: true,
-    path: `${__dirname}//environments//.env.automation` });
+    path: `${__dirname}//environments//.env.automation`
+  });
 } else {
   require("dotenv").config({
     override: true, // use if needed
@@ -36,12 +37,12 @@ export default defineConfig({
   reporter: [
     ['html', { open: 'never' }],
     ['list'],
-    ["allure-playwright", 
-    // {
-    //   detail: true,
-    //     outputFolder: "my-allure-results",
-    //     suiteTitle: false,
-    // }
+    ["allure-playwright",
+      // {
+      //   detail: true,
+      //     outputFolder: "my-allure-results",
+      //     suiteTitle: false,
+      // }
     ]
   ],
 
@@ -62,29 +63,38 @@ export default defineConfig({
       slowMo: 1000,
     },
     colorScheme: 'dark',
+    actionTimeout: 10 * 1000, // delay for each and every actions
+    navigationTimeout: 30 * 1000, // delay for opening page
   },
 
-  timeout: 60000,
+  timeout: 60 * 1000, // timeout for individual tests
+  globalTimeout: 60 * 60 * 1000,// timeout for all tests
 
   /* Configure projects for major browsers */
   projects: [
 
     {
+      name: 'chromium',
+      use: {
+        viewport: null
+
+      },
+    },
+
+    {
       name: 'chrome',
       use: {
-        // ...devices['Desktop Chrome'],
         channel: 'chrome',
         viewport: null,
       },
     },
 
     {
-      name: 'chromium',
-      use: { 
-        // ...devices['Desktop Chrome'], 
-        viewport: null
-      
-    },
+      name: 'msedge',
+      use: {
+        channel: 'msedge',
+        viewport: null,
+      },
     },
 
     {

@@ -14,7 +14,7 @@ test('Social Links in Home Page Test @sanity @social-links', async ({ page }) =>
     var linkedinPage;
 
     await test.step('Opening Landing Page', async () => {
-        await page.goto('/').catch();
+        await page.goto('/');
     });
 
     await test.step('Verifying Facebook Link', async () => {

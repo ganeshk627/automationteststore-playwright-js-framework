@@ -7,7 +7,7 @@ import {
     currencyUSDollar,
 } from '../../pages/base/base-page';
 
-import { currencyConfig } from "page-config/page-config";
+import { currencyConfig } from "../../page-config/page-config";
 
 
 export class BasePage {
@@ -17,7 +17,7 @@ export class BasePage {
     };
 
     async navigateSpecialOffersPage() {
-        
+
     }
 
     async switchCurrencyEuro() {

@@ -15,11 +15,6 @@ export class LoginPage {
 
     constructor(page) {
         this.page = page;
-        // this.username = page.locator('#loginFrm_loginname');
-        // this.password = page.locator('#loginFrm_password');
-        // this.loginBtn = page.getByRole('button', { name: ' Login' });
-        // this.forgotPasswordLink = page.getByRole('link', { name: 'Forgot your password?' });
-        // this.forgotLoginLink = page.getByRole('link', { name: 'Forgot your login?' });
     };
 
     async login(username, password) {
@@ -44,7 +39,7 @@ export class LoginPage {
         logger.info('Navigated to login reset page');
     }
 
-    
+
 
 
 

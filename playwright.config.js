@@ -61,6 +61,7 @@ export default defineConfig({
       args: ["--start-maximized"],
       slowMo: 1000,
     },
+    colorScheme: 'dark',
   },
 
   timeout: 60000,

@@ -13,8 +13,6 @@ export class CheckoutSuccessPage {
 
     constructor(page) {
         this.page = page;
-        // this.continueButton = page.getByRole('link', { name: 'Continue' });
-        // this.successHeading = page.locator('h1.heading1');
     };
 
     async clickContinueButton() {

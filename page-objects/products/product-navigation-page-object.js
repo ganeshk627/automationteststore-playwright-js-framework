@@ -16,12 +16,6 @@ export class ProductNavigationPage {
 
     constructor(page) {
         this.page = page;
-        // this.sort = page.locator('#sort');
-        // this.listViewButton = page.locator('#list');
-        // this.gridViewButton = page.locator('#grid');
-        // this.addToCartButton = page.getByRole('link', { name: 'Add to Cart' });
-        // this.couponTextBox = page.locator('#coupon_coupon');
-        // this.applyCouponButton = page.getByRole('button', { name: 'Apply Coupon' });
     };
 
     async switchToProduct(productCategory, productType) {

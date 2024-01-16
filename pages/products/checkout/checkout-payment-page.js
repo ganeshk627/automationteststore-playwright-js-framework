@@ -1,2 +1,2 @@
-continueButton = '//button[@title="Continue"]'
-backButton = '//a[@title="Back"]'
+export const continueButton = '//button[@title="Continue"]'
+export const backButton = '//a[@title="Back"]'

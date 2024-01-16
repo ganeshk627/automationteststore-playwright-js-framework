@@ -51,6 +51,23 @@ export const checkoutsuccessConfig = {
     ORDER_SUCCESS_MESSAGE: "Your Order Has Been Processed!",
 }
 
+export const facebookConfig = {
+    // TITLE: /Facebook\.*/,
+    TITLE: 'Facebook – log in or sign up',
+    URL: 'https://www.facebook.com/',
+}
+
+export const twitterConfig = {
+    TITLE: 'X. It’s what’s happening / X',
+    URL: 'https://twitter.com/',
+}
+
+export const linkedinConfig = {
+    TITLE: 'LinkedIn: Log In or Sign Up',
+    URL: 'https://uk.linkedin.com/',
+}
+
+
 
 
 

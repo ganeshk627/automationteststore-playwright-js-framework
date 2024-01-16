@@ -19,10 +19,6 @@ export class ProductBasketPage {
 
     constructor(page) {
         this.page = page;
-        // this.checkoutButton1 = page.locator('#cart_checkout1');
-        // this.checkoutButton2 = page.locator('#cart_checkout2');
-        // this.removeItem = page.locator('//a[contains(@href, "remove")]')
-        // this.continueShoppingButton = page.getByRole('link', { name: 'Continue Shopping' });
     };
 
     async applyCouponCode(couponCode) {

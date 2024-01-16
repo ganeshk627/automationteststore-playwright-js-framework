@@ -14,8 +14,6 @@ export class CheckoutConfirmationPage {
 
     constructor(page) {
         this.page = page;
-        // this.confirmOrderButton = page.getByRole('button', { name: 'Confirm Order' });
-        // this.backButton = page.locator('#payment').getByRole('link', { name: 'Back' });
     };
 
     async clickConfirmOrderButton() {
@@ -27,7 +25,7 @@ export class CheckoutConfirmationPage {
 
     async clickBackButton() {
         await expect(this.page).toHaveURL(checkoutconfirmationConfig.URL);
-        await this.page.loator(backButton).click();
+        await this.page.locator(backButton).click();
         await expect(this.page).toHaveURL(checkoutpaymentConfig.URL);
     }
 };

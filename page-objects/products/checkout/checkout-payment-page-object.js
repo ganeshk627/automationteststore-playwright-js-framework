@@ -12,8 +12,6 @@ export class CheckoutPaymentPage {
 
     constructor (page) {
         this.page = page;
-        // this.continueButton = page.getByRole('button', { name: 'Continue' });
-        // this.backButton = page.locator('#payment').getByRole('link', { name: 'Back' });
     };   
 
     async clickContinueButton() {

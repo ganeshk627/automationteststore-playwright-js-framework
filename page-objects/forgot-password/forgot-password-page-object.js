@@ -14,11 +14,6 @@ export class ForgotPasswordPage {
 
     constructor(page) {
         this.page = page;
-        // this.loginName = page.locator('#forgottenFrm_loginname');
-        // this.forgotEmail = page.locator('#forgottenFrm_email');
-        // this.backBtn = page.getByRole('link', { name: ' Back' });
-        // this.continueBtn = page.getByRole('button', { name: ' Continue' });
-
     };
 
     async resetPassword(username, email) {
@@ -29,7 +24,7 @@ export class ForgotPasswordPage {
         await expect(this.page.locator(forgotEmail)).toHaveValue(email);
         await this.page.locator(continueBtn).click();
         await expect(this.page.locator(resetSuccessMessage)).toContainText(forgotpasswordConfig.RESET_PASSWORD_MESSAGE);
-        await expect(this.page.locator(closeResetSuccessMessageButton)).click();
+        await this.page.locator(closeResetSuccessMessageButton).click();
         await expect(this.page).toHaveURL(loginConfig.URL);
         logger.info('Reset Password link sent successfully');
     }

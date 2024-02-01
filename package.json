@@ -5,9 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:chrome": "npx playwright test --headed --project=chrome"
+    "test:chrome": "npx playwright test --headed --project=chrome",
+    "test:env:automation": "cross-env ENV=automation npx playwright test --headed --project=chrome",
+    "test:env:automation1": "cross-env ENV=automation1 npx playwright test --headed --project=chrome",
+    "test:env:qa": "cross-env ENV=qa npx playwright test --headed --project=chrome",
+    "test:env:sit": "cross-env ENV=sit npx playwright test --headed --project=chrome"
   },
-  "keywords": ["playwright", "javascript"],
+  "keywords": [
+    "playwright",
+    "javascript"
+  ],
   "author": "ganeshk",
   "license": "ISC",
   "devDependencies": {
@@ -16,6 +23,7 @@
     "@faker-js/faker": "8.0.2",
     "allure-commandline": "^2.25.0",
     "allure-playwright": "^2.9.2",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "moment-timezone": "^0.5.43",
     "winston": "^3.11.0"

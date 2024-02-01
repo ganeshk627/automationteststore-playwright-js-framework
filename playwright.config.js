@@ -36,7 +36,8 @@ export default defineConfig({
   // reporter: 'html',
   reporter: [
     ['html', { open: 'never' }],
-    ['list'],
+    ['list', { printSteps: true }], // printsteps will print the text  of each step in console
+    ['github'],
     ["allure-playwright",
       // {
       //   detail: true,
@@ -56,7 +57,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
+    // screenshot: 'only-on-failure',
+    screenshot: 'on',
     video: 'off',
     launchOptions: {
       args: ["--start-maximized"],
@@ -69,6 +71,9 @@ export default defineConfig({
 
   timeout: 60 * 1000, // timeout for individual tests
   globalTimeout: 60 * 60 * 1000,// timeout for all tests
+  expect: {
+    timeout: 5 * 1000,
+  },
 
   /* Configure projects for major browsers */
   projects: [
@@ -86,6 +91,7 @@ export default defineConfig({
       use: {
         channel: 'chrome',
         viewport: null,
+        // viewport: {height: 900 , width: 1440} // https://whatismyviewport.com/
       },
     },
 

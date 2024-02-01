@@ -16,7 +16,7 @@ export class SpecialOfferProductsPage {
 
 
     async getAllPrices() {
-        await this.page.locator(priceText).all();
+        return await this.page.locator(priceText).all();
     }
 
     // async toggleProductView(view) {

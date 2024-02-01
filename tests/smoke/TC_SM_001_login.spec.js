@@ -1,3 +1,4 @@
+// @ts-check
 import {test, expect} from '@playwright/test';
 import {LoginPage} from '../../page-objects/login/login-page-object';
 import logger from '../../utils/winston-logger/logger-util';

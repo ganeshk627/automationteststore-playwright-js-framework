@@ -35,7 +35,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
   reporter: [
-    // ['html', { open: 'never' }],
+    ['html', { open: 'never' }],
     // ['list', { printSteps: true }], // printsteps will print the text  of each step in console
     // ['github'],
     // ["allure-playwright",

@@ -1,6 +1,11 @@
 # automationteststore-playwright-js-framework
 
 
+1. All the fixtures are comming from page-fixture.js
+2. Whenever we are creating page object class, needs to be added in page-fixture.js
+3. Instead of using page inside test, we could call corresponding pageobjects directly inside customised test fixture
+
+
 # 01. To Clone the project
 
     git clone https://github.com/ganeshk627/automationteststore-playwright-js-framework.git

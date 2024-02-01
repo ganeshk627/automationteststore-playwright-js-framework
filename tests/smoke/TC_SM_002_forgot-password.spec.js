@@ -1,18 +1,14 @@
-import { test} from '@playwright/test';
-import { LoginPage } from '../../page-objects/login/login-page-object';
-import logger from '../../utils/winston-logger/logger-util';
-import { ForgotPasswordPage } from '../../page-objects/forgot-password/forgot-password-page-object';
-import { HomePage } from '../../page-objects/homepage/homepage-page-object';
+import test from '../../utils/custom-fixtures/page-fixtures';
 
 
-test('Forgot Password @smoke', async ({ page }) => {
-    const homePage = new HomePage(page);
-    const loginPage = new LoginPage(page);
-    const forgotPasswordPage = new ForgotPasswordPage(page);
+test('Forgot Password @smoke', async ({
+    homePage,
+    loginPage,
+    forgotPasswordPage,
+}) => {
 
     await test.step('Open application', async () => {
-        await page.goto('/');
-        logger.info(`Navigated to ${await page.url()}`);
+        await homePage.openApplication();
         await homePage.openLoginOrRegistrationPage();
     });
 

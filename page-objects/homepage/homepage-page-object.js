@@ -29,6 +29,11 @@ export class HomePage extends HeaderFooterPage {
         this.page = page;
     };
 
+    async openApplication() {
+        await this.page.goto('/');
+        logger.info(`Navigated to ${await this.page.url()}`);
+    }
+
     async openLoginOrRegistrationPage() {
         await this.page.locator(loginOrRegisterLink).click();
         await expect(this.page).toHaveURL(loginConfig.URL);

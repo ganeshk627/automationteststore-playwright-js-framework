@@ -1,17 +1,17 @@
 // @ts-check
-import {test, expect} from '@playwright/test';
-import {LoginPage} from '../../page-objects/login/login-page-object';
+import { expect } from '@playwright/test';
 import logger from '../../utils/winston-logger/logger-util';
-import { HomePage } from '../../page-objects/homepage/homepage-page-object';
+import test from '../../utils/custom-fixtures/page-fixtures';
 
 
-test('Login Test @smoke', async({page})=>{
-    const homePage = new HomePage(page);
-    const loginPage = new LoginPage(page);
+
+test('Login Test @smoke', async ({
+    homePage,
+    loginPage,
+}) => {
 
     await test.step('Opening Login Page', async () => {
-        await page.goto('/');
-        logger.info(`Navigated to ${await page.url()}`);
+        await homePage.openApplication();
         await homePage.openLoginOrRegistrationPage();
     });
 
@@ -21,8 +21,8 @@ test('Login Test @smoke', async({page})=>{
 
     });
 
-    await test.step('Validate dashboard', async () => {  
-        await expect(page).toHaveURL(/.*account\/account/).catch((error)=> {logger.error(error); throw error});      
+    await test.step('Validate dashboard', async () => {
+        await expect(loginPage.page).toHaveURL(/.*account\/account/).catch((error) => { logger.error(error); throw error });
         // await expect(page).toHaveURL('*/dashboard/').catch((error)=> {logger.error(error); throw error});
         logger.info('Successfully navigated to Dashboard page');
     });

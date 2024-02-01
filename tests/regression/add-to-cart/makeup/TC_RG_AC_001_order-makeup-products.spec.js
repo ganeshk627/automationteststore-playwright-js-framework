@@ -1,25 +1,20 @@
-import {test} from '@playwright/test';
-import { HomePage } from "../../../../page-objects/homepage/homepage-page-object";
-import { LoginPage } from "../../../../page-objects/login/login-page-object";
 import logger from '../../../../utils/winston-logger/logger-util';
-import { DashboardPage } from '../../../../page-objects/dashboard/dashboard-page-object';
-import { ProductNavigationPage } from '../../../../page-objects/products/product-navigation-page-object';
-import { ProductBasketPage } from '../../../../page-objects/products/product-basket-page-object';
+import test from '../../../../utils/custom-fixtures/page-fixtures';
 
 const productCategory = 'Makeup';
 const productType = 'Face';
 const productName = 'Delicate Oil-Free Powder Blush';
 
-test('Checkout Makeup Products @regression', async({page})=>{
-    const homePage = new HomePage(page);
-    const loginPage = new LoginPage(page);
-    const dashboardPage = new DashboardPage(page);
-    const productNavigationPage = new ProductNavigationPage(page);
-    const productBasketPage = new ProductBasketPage(page);
+test('Checkout Makeup Products @regression', async ({
+    homePage,
+    loginPage,
+    dashboardPage,
+    productNavigationPage,
+    productBasketPage
+}) => {
 
     await test.step('Login as Default Login', async () => {
-        await page.goto('/');
-        logger.info(`Navigated to ${await page.url()}`);
+        await homePage.openApplication();
         await homePage.openLoginOrRegistrationPage();
         await loginPage.login(process.env.USERNAME, process.env.PASSWORD);
         logger.info('Entered username and password');
@@ -36,11 +31,11 @@ test('Checkout Makeup Products @regression', async({page})=>{
         await productNavigationPage.addProductToCart(productName);
     });
 
-    await test.step(`Checkout and buy makeup products`, async()=>{
+    await test.step(`Checkout and buy makeup products`, async () => {
         const checkoutConfirmationPage = await productBasketPage.clickCheckoutProduct1();
-        const checkoutSuccessPage = await checkoutConfirmationPage.clickConfirmOrderButton(); 
+        const checkoutSuccessPage = await checkoutConfirmationPage.clickConfirmOrderButton();
         await checkoutSuccessPage.validateOrderSuccessMessage();
         await checkoutSuccessPage.clickContinueButton();
     })
 
-})
+});

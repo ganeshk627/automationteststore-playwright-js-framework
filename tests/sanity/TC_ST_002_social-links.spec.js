@@ -1,20 +1,19 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from '../../page-objects/homepage/homepage-page-object';
 import {
     facebookConfig,
     twitterConfig,
     linkedinConfig
 } from '../../page-config/page-config';
+import { expect } from '@playwright/test';
+import test from '../../utils/custom-fixtures/page-fixtures';
 
 
-test('Social Links in Home Page Test @sanity @social-links', async ({ page }) => {
-    const homePage = new HomePage(page);
+test('Social Links in Home Page Test @sanity @social-links', async ({ homePage }) => {
     var facebookPage;
     var twitterPage;
     var linkedinPage;
 
     await test.step('Opening Landing Page', async () => {
-        await page.goto('/');
+        await homePage.openApplication();
     });
 
     await test.step('Verifying Facebook Link', async () => {

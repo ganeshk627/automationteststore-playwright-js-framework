@@ -19,9 +19,9 @@ export class SpecialOfferProductsPage {
         await this.page.locator(priceText).all();
     }
 
-    async toggleProductView(view) {
-        view === 'list' ? await this.page.locator(listViewButton).click() : await this.page.locator(gridViewButton).click();
-    };
+    // async toggleProductView(view) {
+    //     view === 'list' ? await this.page.locator(listViewButton).click() : await this.page.locator(gridViewButton).click();
+    // };
 
 
 

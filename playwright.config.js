@@ -35,16 +35,17 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
   reporter: [
-    ['html', { open: 'never' }],
-    ['list', { printSteps: true }], // printsteps will print the text  of each step in console
-    ['github'],
-    ["allure-playwright",
+    // ['html', { open: 'never' }],
+    // ['list', { printSteps: true }], // printsteps will print the text  of each step in console
+    // ['github'],
+    // ["allure-playwright",
       // {
       //   detail: true,
       //     outputFolder: "my-allure-results",
       //     suiteTitle: false,
       // }
-    ]
+    // ],
+    ['blob'],
   ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -90,8 +91,8 @@ export default defineConfig({
       name: 'chrome',
       use: {
         channel: 'chrome',
-        viewport: null,
-        // viewport: {height: 900 , width: 1440} // https://whatismyviewport.com/
+        // viewport: null,
+        viewport: {height: 900 , width: 1440} // https://whatismyviewport.com/
       },
     },
 

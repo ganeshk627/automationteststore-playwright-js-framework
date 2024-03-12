@@ -19,3 +19,7 @@ npm install
 ```bash
 npx playwright test --headed --project=chrome --workers=20 --config=playwright.service.config.js
 ```
+
+# Resources:-
+
+https://learn.microsoft.com/en-gb/azure/playwright-testing/quickstart-run-end-to-end-tests?tabs=playwrightcli#configure-the-service-region-endpoint

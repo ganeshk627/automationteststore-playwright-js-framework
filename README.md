@@ -8,34 +8,14 @@
 
 # 02. To Install Packages, use below command
 
-    npm install
+```bash
+npm install
+```
     
 #### Outcome:- 'node_modules' folder should be created
 
-# 03. To Run Tests in Chrome and Headless
+# 03. To Run Tests in Microsoft Azure only against chrome
 
-    npx playwright test --project=chrome
-
-
-#### Note:- Run in single threaded to avoid failures, use below command
-
-    npx playwright test --project=chrome --workers=1 --headed
-
-
-
-# 04. Opening Playwright Report
-
-    npx playwright show-report
-
-
-# 05. Opening Allure Report
-
-## To Open Allure report, use below command (Java should be installed)
-
-    allure serve
-
-## To Generate and view HTML Allure report, use below command
-
-    allure generate --clean --single-file
-
-#### Outcome:- HTML report is generated under 'allure-report'
+```bash
+npx playwright test --headed --project=chrome --workers=20 --config=playwright.service.config.js
+```

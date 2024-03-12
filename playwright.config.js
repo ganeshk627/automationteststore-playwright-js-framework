@@ -37,7 +37,7 @@ export default defineConfig({
   reporter: [
     ['html', { open: 'never' }],
     ['list', { printSteps: true }], // printsteps will print the text  of each step in console
-    ['github'],
+    // ['github'],
     ["allure-playwright",
       // {
       //   detail: true,
@@ -59,11 +59,11 @@ export default defineConfig({
     trace: 'on-first-retry',
     // screenshot: 'only-on-failure',
     screenshot: 'on',
-    video: 'off',
-    launchOptions: {
-      args: ["--start-maximized"],
-      slowMo: 1000,
-    },
+    video: 'on',
+    // launchOptions: {
+    //   args: ["--start-maximized"],
+    //   slowMo: 1000,
+    // },
     colorScheme: 'dark',
     actionTimeout: 10 * 1000, // delay for each and every actions
     navigationTimeout: 30 * 1000, // delay for opening page
@@ -81,7 +81,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: {
-        viewport: null
+        // viewport: null
 
       },
     },
@@ -90,7 +90,7 @@ export default defineConfig({
       name: 'chrome',
       use: {
         channel: 'chrome',
-        viewport: null,
+        // viewport: null,
         // viewport: {height: 900 , width: 1440} // https://whatismyviewport.com/
       },
     },

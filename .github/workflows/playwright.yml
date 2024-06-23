@@ -4,6 +4,8 @@ on:
     branches: [ github-actions-shard ]
 #   pull_request:
 #     branches: [ github-actions-shard ]
+  workflow_dispatch:
+  
 jobs:
   playwright-tests:
     timeout-minutes: 60
